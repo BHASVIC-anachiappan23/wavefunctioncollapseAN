@@ -102,6 +102,17 @@ public class Main {
 	      
 	      return neighborsData;
 	}
+	static void printArr(Integer[][] patterns){
+		for(int i = 0; i < patterns.length; i++){
+			StringBuilder sb = new StringBuilder();
+			for(int j = 0; j < patterns[i].length; j++){
+				sb.append(patterns[i][j]);
+			}
+			if(sb.toString().equals("000001000")){
+				System.out.println(i);
+			}
+		}
+	}
 	
 	static BufferedImage loadImage(String path) throws IOException {
 		Image knot = ImageIO.read(new File(path));
@@ -188,11 +199,12 @@ public class Main {
 			  true,
 			  false,
 		  2,
-			102
+			6
 			);
 			boolean finished = model.run(random.nextInt(), 0);
 
 			System.out.println("Finished: " + finished);
+			printArr(model.patterns);
 
 			BufferedImage output = model.graphics();
 

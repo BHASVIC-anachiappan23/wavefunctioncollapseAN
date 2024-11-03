@@ -48,8 +48,22 @@ public class OverlappingModel extends Model {
     Integer[][] sample = new Integer[SMX][SMY];
 
     this.colors = new ArrayList<Color>();
+    int[][] arr = new int[SMX][SMY];
+    //3 end goal, 1 wall, 2 open, 5 obs
+    arr = new int[][]{
+            {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
+            {1, 2, 2, 2, 2, 2, 2, 2, 3, 1},
+            {1, 2, 2, 2, 2, 2, 2, 2, 2, 1},
+            {1, 2, 2, 2, 2, 2, 2, 1, 2, 1},
+            {1, 2, 2, 2, 2, 1, 2, 2, 2, 1},
+            {1, 2, 2, 2, 1, 1, 1, 1, 2, 1},
+            {1, 2, 2, 2, 2, 2, 1, 2, 1, 1},
+            {1, 2, 2, 2, 2, 2, 1, 1, 1, 1},
+            {1, 2, 2, 2, 2, 2, 1, 2, 2, 1},
+            {1, 2, 5, 1, 5, 2, 1, 2, 2, 1},
+    };
 
-    for (int y = 0; y < SMY; y++) for (int x = 0; x < SMX; x++) {
+      for (int y = 0; y < SMY; y++) for (int x = 0; x < SMX; x++) {
       Color color = new Color(data.getRGB(x, y));
 
       int i = 0;
@@ -268,7 +282,6 @@ public class OverlappingModel extends Model {
 
     return result;
   }
-
   protected void Clear() {
     super.Clear();
 
